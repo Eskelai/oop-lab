@@ -1,4 +1,4 @@
-package lab;
+package lab.vector;
 
 public interface VectorInteface {
     // int vectorSize = -1;

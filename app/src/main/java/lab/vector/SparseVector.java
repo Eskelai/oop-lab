@@ -1,11 +1,11 @@
-package lab;
+package lab.vector;
 
 import java.util.Vector;
 
-public class RegularVector implements VectorInteface {
+public class SparseVector implements VectorInteface {
     private Vector<Object> vector;
 
-    public RegularVector(int size) {
+    public SparseVector(int size) {
         vector = new Vector<Object>(size);
     }
 
