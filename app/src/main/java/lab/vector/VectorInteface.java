@@ -1,9 +1,9 @@
 package lab.vector;
 
 public interface VectorInteface {
-    Object read(int index);
+    int read(int index);
 
-    void write(Object o);
+    void write(int i);
 
     int getSize();
 

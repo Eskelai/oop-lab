@@ -3,18 +3,18 @@ package lab.vector;
 import java.util.Vector;
 
 public class SparseVector implements VectorInteface {
-    private Vector<Object> vector;
+    private Vector<Integer> vector;
 
     public SparseVector(int size) {
-        vector = new Vector<Object>(size);
+        vector = new Vector<Integer>(size);
     }
 
     public SparseVector(int[] members) throws IllegalArgumentException {
-        vector = new Vector<Object>(members.length);
+        vector = new Vector<Integer>(members.length);
 
-        Integer amount_0 = 0;
-        Integer amount_1 = 0;
-        for (Integer i = 0; i < members.length; i++) {
+        int amount_0 = 0;
+        int amount_1 = 0;
+        for (int i = 0; i < members.length; i++) {
             if (members[i] == 0) {
                 amount_0 += 1;
             } else {
@@ -25,17 +25,17 @@ public class SparseVector implements VectorInteface {
             throw new IllegalArgumentException("Amount of 1 is greater than 0");
         }
 
-        for (Integer i = 0; i < members.length; i++) {
+        for (int i = 0; i < members.length; i++) {
             this.write(members[i]);
         }
     }
 
-    public Object read(int index) {
+    public int read(int index) {
         return vector.get(index);
     }
 
-    public void write(Object o) {
-        vector.addElement(o);
+    public void write(int i) {
+        vector.addElement(i);
     }
 
     public int getSize() {
