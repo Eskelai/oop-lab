@@ -31,6 +31,16 @@ class TestSparseVector {
     }
 
     @Test
+    void changeVector() {
+        SparseVector vector = new SparseVector(members);
+        vector.write(10);
+        assert (vector.read(5) == 10);
+        vector.change(5, 1010);
+        assert (vector.read(5) == 1010);
+
+    }
+
+    @Test
     void getSize() {
         SparseVector vector = new SparseVector(members);
         assert (vector.getSize() > 0);

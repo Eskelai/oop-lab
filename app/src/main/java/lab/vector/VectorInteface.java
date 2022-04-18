@@ -7,4 +7,6 @@ public interface VectorInteface {
 
     int getSize();
 
+    void change(int index, int value);
+
 }

@@ -1,13 +1,11 @@
 package lab.matrix;
 
-//https://stackoverflow.com/questions/35240044/how-to-represent-a-2d-matrix-in-java
 public interface MatrixInterface {
     int getColsAmount();
 
     int getRowsAmount();
 
-    int read();
+    int read(int col_id, int row_id);
 
-    int write();
-
+    void write(int col_id, int row_id, int value);
 }

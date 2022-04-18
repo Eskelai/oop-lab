@@ -2,6 +2,7 @@ package lab.vector;
 
 import java.util.Vector;
 
+// Wrapper/Adapter over java.util.Vector
 public class RegularVector implements VectorInteface {
     private Vector<Integer> vector;
 
@@ -27,6 +28,10 @@ public class RegularVector implements VectorInteface {
 
     public int getSize() {
         return vector.size();
+    }
+
+    public void change(int index, int value) {
+        vector.set(index, value);
     }
 
 }

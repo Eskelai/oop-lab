@@ -3,23 +3,38 @@ package lab.TestMatrix;
 import org.junit.jupiter.api.Test;
 
 import lab.matrix.RegularMatrix;
-import lab.vector.RegularVector;
-import lab.vector.SparseVector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestRegularMatrix {
+    @Test
+    void createMatrix() {
+        new RegularMatrix(10);
+    }
 
     @Test
-    void createRndRegular() {
-        int[] val_1 = new int[] { 1, 2, 3, 4, 5 };
-        RegularVector vector_1 = new RegularVector(val_1);
-
-        int[] val_2 = new int[] { 6, 7, 8, 9, 10 };
-        RegularVector vector_2 = new RegularVector(val_2);
+    void getColumns() {
         RegularMatrix matrix = new RegularMatrix(10);
-        assert (matrix.getColsAmount() > 0);
-        assert (matrix.getRowsAmount() > 0);
+        assert (matrix.getColsAmount() == 10);
+    }
+
+    @Test
+    void getRows() {
+        RegularMatrix matrix = new RegularMatrix(10);
+        assert (matrix.getRowsAmount() == 10);
+    }
+
+    @Test
+    void readMatrix() {
+        RegularMatrix matrix = new RegularMatrix(10);
+        assertNotNull(matrix.read(1, 1));
+    }
+
+    @Test
+    void writeMatrix() {
+        RegularMatrix matrix = new RegularMatrix(10);
+        matrix.write(1, 1, 1010);
+        assert (matrix.read(1, 1) == 1010);
     }
 
 }
