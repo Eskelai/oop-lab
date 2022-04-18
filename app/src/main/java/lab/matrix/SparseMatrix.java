@@ -4,26 +4,22 @@ public class SparseMatrix extends MatrixAbstract {
 
     @Override
     public int getColsAmount() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public int getRowsAmount() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
-    public void read() {
-        // TODO Auto-generated method stub
-
+    public int read() {
+        return 0;
     }
 
     @Override
-    public void write() {
-        // TODO Auto-generated method stub
-
+    public int write() {
+        return 0;
     }
 
 }

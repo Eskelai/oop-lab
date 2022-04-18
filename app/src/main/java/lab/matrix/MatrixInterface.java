@@ -6,8 +6,8 @@ public interface MatrixInterface {
 
     int getRowsAmount();
 
-    void read();
+    int read();
 
-    void write();
+    int write();
 
 }
