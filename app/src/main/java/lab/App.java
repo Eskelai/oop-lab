@@ -2,6 +2,7 @@ package lab;
 
 import lab.matrix.RegularMatrix;
 import lab.vector.RegularVector;
+import lab.vector.SparseVector;
 
 /**
  * Main class
@@ -11,14 +12,11 @@ public class App {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println("Test");
-        RegularVector test = new RegularVector(10);
-        test.write("1");
-        test.write("123123123");
-        System.out.println(test.read(0));
-        System.out.println(test.read(1));
-        RegularMatrix matrix = new RegularMatrix();
-        System.out.println(matrix.vector);
+        int[] members = new int[] { 1, 2, 0, 0, 0 };
+        SparseVector Sparse = new SparseVector(members);
+        System.out.println(Sparse.getSize());
+        System.out.println("Test");
     }
 }
