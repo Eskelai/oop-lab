@@ -19,7 +19,7 @@ public class MatrixStatistics {
 
     public int getMedium() {
         int sum = getSum();
-        int medium = sum / (matrix.getColsAmount() * matrix.getRowsAmount())
+        int medium = sum / (matrix.getColsAmount() * matrix.getRowsAmount());
 
         return medium;
     }

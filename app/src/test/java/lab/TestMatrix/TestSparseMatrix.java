@@ -15,26 +15,31 @@ public class TestSparseMatrix {
     }
 
     @Test
+    void createRndMatrix() {
+        new SparseMatrix(10, true);
+    }
+
+    @Test
     void getColumns() {
-        SparseMatrix matrix = new SparseMatrix(10);
+        SparseMatrix matrix = new SparseMatrix(10, true);
         assert (matrix.getColsAmount() == 10);
     }
 
     @Test
     void getRows() {
-        SparseMatrix matrix = new SparseMatrix(10);
+        SparseMatrix matrix = new SparseMatrix(10, true);
         assert (matrix.getRowsAmount() == 10);
     }
 
     @Test
     void readMatrix() {
-        SparseMatrix matrix = new SparseMatrix(10);
+        SparseMatrix matrix = new SparseMatrix(10, true);
         assertNotNull(matrix.read(1, 1));
     }
 
     @Test
     void writeMatrix() {
-        SparseMatrix matrix = new SparseMatrix(10);
+        SparseMatrix matrix = new SparseMatrix(10, true);
         matrix.write(1, 1, 1010);
         assert (matrix.read(1, 1) == 1010);
     }

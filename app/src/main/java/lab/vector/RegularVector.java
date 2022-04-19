@@ -8,6 +8,7 @@ public class RegularVector implements VectorInteface {
 
     public RegularVector(int size) {
         vector = new Vector<Integer>(size);
+        vector.setSize(size); // New vector does not allocate size
     }
 
     public RegularVector(int[] members) {
@@ -19,7 +20,7 @@ public class RegularVector implements VectorInteface {
     }
 
     public int read(int index) {
-        return vector.get(index);
+        return vector.elementAt(index);
     }
 
     public void write(int i) {

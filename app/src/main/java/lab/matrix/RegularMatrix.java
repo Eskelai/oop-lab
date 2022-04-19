@@ -11,15 +11,26 @@ public class RegularMatrix extends MatrixAbstract {
     // Second number is row
 
     public RegularMatrix(int size) {
-        Random rand = new Random();
+        vector = new Vector<>();
         int cols_size = size;
         int rows_size = size;
 
-        vector = new Vector<>();
-
         for (int row_id = 0; row_id < rows_size; row_id++) {
             RegularVector row = new RegularVector(rows_size);
-            for (int col_id = 0; col_id < cols_size; col_id++) {
+            vector.add(row);
+        }
+    }
+
+    public RegularMatrix(int size, boolean random_fill) {
+        if (random_fill == false) {
+            // FIXME: Raise error
+        }
+        Random rand = new Random();
+        vector = new Vector<>();
+
+        for (int row_id = 0; row_id < size; row_id++) {
+            RegularVector row = new RegularVector(0);
+            for (int col_id = 0; col_id < size; col_id++) {
                 row.write(rand.nextInt(-10, 10));
             }
             vector.add(row);
@@ -33,17 +44,17 @@ public class RegularMatrix extends MatrixAbstract {
 
     @Override
     public int getRowsAmount() {
-        return vector.get(0).getSize();
+        return vector.elementAt(0).getSize();
     }
 
     @Override
     public int read(int col_id, int row_id) {
-        return vector.get(col_id).read(row_id);
+        return vector.elementAt(col_id).read(row_id);
     }
 
     @Override
     public void write(int col_id, int row_id, int value) {
-        vector.get(col_id).change(row_id, value);
+        vector.elementAt(col_id).change(row_id, value);
     }
 
 }

@@ -12,15 +12,21 @@ public class SparseMatrix extends MatrixAbstract {
     // Second number is row
 
     public SparseMatrix(int size) {
-        Random rand = new Random();
-        int cols_size = size;
-        int rows_size = size;
-
         vector = new Vector<>();
 
-        for (int row_id = 0; row_id < rows_size; row_id++) {
-            SparseVector row = new SparseVector(rows_size);
-            for (int col_id = 0; col_id < cols_size; col_id++) {
+        for (int row_id = 0; row_id < size; row_id++) {
+            SparseVector row = new SparseVector(size);
+            vector.add(row);
+        }
+    }
+
+    public SparseMatrix(int size, boolean random_fill) {
+        Random rand = new Random();
+        vector = new Vector<>();
+
+        for (int row_id = 0; row_id < size; row_id++) {
+            SparseVector row = new SparseVector(0);
+            for (int col_id = 0; col_id < size; col_id++) {
                 row.write(rand.nextInt(-10, 10));
             }
             vector.add(row);

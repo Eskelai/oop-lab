@@ -8,6 +8,7 @@ public class SparseVector implements VectorInteface {
 
     public SparseVector(int size) {
         vector = new Vector<Integer>(size);
+        vector.setSize(size); // New vector does not allocate size
     }
 
     public SparseVector(int[] members) throws IllegalArgumentException {
@@ -32,7 +33,7 @@ public class SparseVector implements VectorInteface {
     }
 
     public int read(int index) {
-        return vector.get(index);
+        return vector.elementAt(index);
     }
 
     public void write(int i) {
