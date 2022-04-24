@@ -1,16 +1,17 @@
 package lab.vector;
 
+import java.util.HashMap;
 import java.util.TreeMap;
 
 // https://www.geeksforgeeks.org/implementing-sparse-vector-in-java/
 public class SparseVector<T> implements VectorInteface<T> {
-    private TreeMap<Integer, T> tm;
+    private HashMap<Integer, T> tm;
     private int size;
 
     public SparseVector(int size) {
         this.size = size;
 
-        tm = new TreeMap<Integer, T>();
+        tm = new HashMap<Integer, T>();
     }
 
     public T read(int i) {

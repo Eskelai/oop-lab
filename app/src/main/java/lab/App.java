@@ -2,8 +2,11 @@ package lab;
 
 import lab.matrix.MatrixInitiator;
 import lab.matrix.MatrixStatistics;
+import lab.matrix.NumberDecorator;
 import lab.matrix.RegularMatrix;
 import lab.matrix.SparseMatrix;
+import lab.matrix_visual.MatrixDrawer;
+import lab.matrix_visual.schemes.CLIScheme;
 
 public class App {
 
@@ -37,5 +40,16 @@ public class App {
 
         System.out.println("Sparse:");
         App.print_stats(s_stats);
+
+        CLIScheme scheme = new CLIScheme();
+        MatrixDrawer drawer = new MatrixDrawer(scheme);
+
+        drawer.draw(r_matrix);
+
+        NumberDecorator decorated_matrix = new NumberDecorator(r_matrix);
+        decorated_matrix.moveNumbers();
+        drawer.draw(decorated_matrix);
+        decorated_matrix.resetMatrix();
+        drawer.draw(decorated_matrix);
     }
 }
