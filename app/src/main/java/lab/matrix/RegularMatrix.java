@@ -6,9 +6,8 @@ public class RegularMatrix extends MatrixAbstract {
     private RegularVector<RegularVector<Integer>> matrix;
 
     public RegularMatrix(int side_size) {
-        // 1 vector - rows
-        // 2 vector - columns
         matrix = new RegularVector<RegularVector<Integer>>(side_size);
+        // Row based
         for (int i = 0; i < side_size; i++) {
             matrix.write(i, new RegularVector<Integer>(side_size));
         }

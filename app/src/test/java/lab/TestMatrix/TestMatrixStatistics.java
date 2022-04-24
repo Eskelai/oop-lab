@@ -2,41 +2,53 @@ package lab.TestMatrix;
 
 import org.junit.jupiter.api.Test;
 
-// import lab.matrix.MatrixStatistics;
-// import lab.matrix.RegularMatrix;
+import lab.matrix.MatrixStatistics;
+import lab.matrix.RegularMatrix;
 
-// import static org.junit.jupiter.api.Assertions.*;
+public class TestMatrixStatistics {
+    RegularMatrix getTestMatrix() {
+        RegularMatrix matrix = new RegularMatrix(2);
+        /*
+         * |0,1|
+         * |1,2|
+         */
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                matrix.write(i, j, i + j);
+            }
 
-// public class TestMatrixStatistics {
-// int[][] values = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-// RegularMatrix r_matrix = new RegularMatrix(values);
+        }
+        return matrix;
+    }
 
-// @Test
-// void getSum() {
-// MatrixStatistics Stats = new MatrixStatistics(r_matrix);
-// int sum = Stats.getSum();
-// assert (sum > 0);
-// }
+    RegularMatrix test_matrix = getTestMatrix();
 
-// @Test
-// void getMedium() {
-// MatrixStatistics Stats = new MatrixStatistics(r_matrix);
-// int medium = Stats.getMedium();
-// assert (medium > 0);
-// }
+    @Test
+    void getSum() {
+        MatrixStatistics Stats = new MatrixStatistics(test_matrix);
+        int sum = Stats.getSum();
+        assert (sum > 0);
+    }
 
-// @Test
-// void getNotNull() {
-// MatrixStatistics Stats = new MatrixStatistics(r_matrix);
-// int not_null = Stats.getNotNull();
-// assert (not_null == 9);
-// }
+    @Test
+    void getMedium() {
+        MatrixStatistics Stats = new MatrixStatistics(test_matrix);
+        int medium = Stats.getMedium();
+        assert (medium > 0);
+    }
 
-// @Test
-// void getMax() {
-// MatrixStatistics Stats = new MatrixStatistics(r_matrix);
-// int max = Stats.getMax();
-// assert (max == 9);
-// }
+    @Test
+    void getNotNull() {
+        MatrixStatistics Stats = new MatrixStatistics(test_matrix);
+        int not_null = Stats.getNotNull();
+        assert (not_null == 3);
+    }
 
-// }
+    @Test
+    void getMax() {
+        MatrixStatistics Stats = new MatrixStatistics(test_matrix);
+        int max = Stats.getMax();
+        assert (max == 2);
+    }
+
+}

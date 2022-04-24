@@ -4,12 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import lab.vector.SparseVector;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class TestSparseVector {
     @Test
     void createVector() {
-        SparseVector<Double> vector = new SparseVector<Double>(1);
+        new SparseVector<Double>(1);
     }
 
     @Test

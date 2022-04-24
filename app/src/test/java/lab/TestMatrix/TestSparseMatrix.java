@@ -2,46 +2,56 @@ package lab.TestMatrix;
 
 import org.junit.jupiter.api.Test;
 
-// import lab.matrix.SparseMatrix;
-// import lab.vector.RegularVector;
-// import lab.vector.SparseVector;
+import lab.matrix.SparseMatrix;
 
-// import static org.junit.jupiter.api.Assertions.*;
+public class TestSparseMatrix {
+    @Test
+    void createMatrix() {
+        new SparseMatrix(3);
+    }
 
-// public class TestSparseMatrix {
-// @Test
-// void createMatrix() {
-// new SparseMatrix(10);
-// }
+    @Test
+    void getColumns() {
+        SparseMatrix matrix = new SparseMatrix(3);
+        assert matrix.getColsAmount() == 3;
+    }
 
-// @Test
-// void createRndMatrix() {
-// new SparseMatrix(10, true);
-// }
+    @Test
+    void getRows() {
+        SparseMatrix matrix = new SparseMatrix(3);
+        assert matrix.getRowsAmount() == 3;
+    }
 
-// @Test
-// void getColumns() {
-// SparseMatrix matrix = new SparseMatrix(10, true);
-// assert (matrix.getColsAmount() == 10);
-// }
+    @Test
+    void readWriteMatrix() {
+        SparseMatrix matrix = new SparseMatrix(2);
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                matrix.write(i, j, 1);
+            }
+        }
 
-// @Test
-// void getRows() {
-// SparseMatrix matrix = new SparseMatrix(10, true);
-// assert (matrix.getRowsAmount() == 10);
-// }
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                assert matrix.read(i, j) == 1;
+            }
+        }
 
-// @Test
-// void readMatrix() {
-// SparseMatrix matrix = new SparseMatrix(10, true);
-// assertNotNull(matrix.read(1, 1));
-// }
+    }
 
-// @Test
-// void writeMatrix() {
-// SparseMatrix matrix = new SparseMatrix(10, true);
-// matrix.write(1, 1, 1010);
-// assert (matrix.read(1, 1) == 1010);
-// }
+    @Test
+    void readWriteMatrixNullValues() {
+        SparseMatrix matrix = new SparseMatrix(2);
 
-// }
+        matrix.write(0, 0, 0);
+        matrix.write(0, 1, 0);
+        matrix.write(1, 0, 0);
+        matrix.write(1, 1, 1);
+
+        assert matrix.read(0, 0) == 0;
+        assert matrix.read(0, 1) == 0;
+        assert matrix.read(1, 0) == 0;
+        assert matrix.read(1, 1) == 1;
+
+    }
+}

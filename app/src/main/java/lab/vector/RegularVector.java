@@ -11,12 +11,12 @@ public class RegularVector<T> implements VectorInteface<T> {
         vector.setSize(size); // Something is fishy here
     }
 
-    public T read(int index) {
-        return vector.elementAt(index);
+    public T read(int i) {
+        return vector.elementAt(i);
     }
 
-    public void write(int index, T value) {
-        vector.setElementAt(value, index);
+    public void write(int i, T value) {
+        vector.setElementAt(value, i);
     }
 
     public int getSize() {

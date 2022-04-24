@@ -4,12 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import lab.vector.RegularVector;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class TestRegularVector {
     @Test
     void createVector() {
-        RegularVector<Double> vector = new RegularVector<Double>(1);
+        new RegularVector<Double>(1);
     }
 
     @Test

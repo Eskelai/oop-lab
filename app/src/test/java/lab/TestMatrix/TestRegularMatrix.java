@@ -7,7 +7,7 @@ import lab.matrix.RegularMatrix;
 public class TestRegularMatrix {
     @Test
     void createMatrix() {
-        RegularMatrix matrix = new RegularMatrix(3);
+        new RegularMatrix(3);
     }
 
     @Test
@@ -22,17 +22,20 @@ public class TestRegularMatrix {
         assert matrix.getRowsAmount() == 3;
     }
 
-    // @Test
-    // void readMatrix() {
-    // RegularMatrix matrix = new RegularMatrix(3);
-    // assertNotNull(matrix.read(1, 1));
-    // }
+    @Test
+    void readWriteMatrix() {
+        RegularMatrix matrix = new RegularMatrix(2);
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                matrix.write(i, j, 1);
+            }
+        }
 
-    // @Test
-    // void writeMatrix() {
-    // RegularMatrix matrix = new RegularMatrix(3);
-    // matrix.write(1, 1, 1010);
-    // assert (matrix.read(1, 1) == 1010);
-    // }
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                assert matrix.read(i, j) == 1;
+            }
+        }
 
+    }
 }
