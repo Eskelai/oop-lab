@@ -1,51 +1,42 @@
 package lab.vector;
 
-import java.util.Vector;
+import java.util.TreeMap;
 
-// Wrapper/Adapter over java.util.Vector
-public class SparseVector implements VectorInteface {
-    private Vector<Integer> vector;
+// https://www.geeksforgeeks.org/implementing-sparse-vector-in-java/
+public class SparseVector<T> implements VectorInteface<T> {
+    private TreeMap<Integer, T> st;
+    private int size;
 
     public SparseVector(int size) {
-        vector = new Vector<Integer>(size);
-        vector.setSize(size); // New vector does not allocate size
+        this.size = size;
+
+        st = new TreeMap<Integer, T>();
     }
 
-    public SparseVector(int[] members) throws IllegalArgumentException {
-        vector = new Vector<Integer>(members.length);
+    public T read(int i) {
+        if (i < 0 || i >= size)
+            throw new RuntimeException("Vector out of bounds");
 
-        int amount_0 = 0;
-        int amount_1 = 0;
-        for (int i = 0; i < members.length; i++) {
-            if (members[i] == 0) {
-                amount_0 += 1;
-            } else {
-                amount_1 += 1;
-            }
-        }
-        if (amount_1 > amount_0) {
-            throw new IllegalArgumentException("Amount of 1 is greater than 0");
-        }
+        if (st.containsKey(i))
+            return st.get(i);
+        else
+            return null;
 
-        for (int i = 0; i < members.length; i++) {
-            this.write(members[i]);
-        }
     }
 
-    public int read(int index) {
-        return vector.elementAt(index);
-    }
+    public void write(int i, T value) {
+        if (i < 0 || i >= size)
+            throw new RuntimeException("Vector out of bounds");
 
-    public void write(int i) {
-        vector.addElement(i);
+        if ((int) value == 0) { // FIXME: How can this be generalized
+            st.remove(i);
+        } else {
+            st.put(i, value);
+        }
     }
 
     public int getSize() {
-        return vector.size();
-    }
-
-    public void change(int index, int value) {
-        vector.set(index, value);
+        return size;
     }
 
 }

@@ -7,43 +7,30 @@ import lab.vector.RegularVector;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestRegularVector {
-    int[] members = new int[] { 1, 2, 0, 0, 0 };
-
     @Test
     void createVector() {
-        new RegularVector(members);
+        RegularVector<Double> vector = new RegularVector<Double>(1);
     }
 
     @Test
-    void readVector() {
-        RegularVector vector = new RegularVector(members);
-        assert (vector.read(0) == 1);
-        assert (vector.read(4) == 0);
-
+    void getVectorSize() {
+        RegularVector<Double> vector = new RegularVector<Double>(1);
+        assert vector.getSize() == 1;
     }
 
     @Test
-    void writeVector() {
-        RegularVector vector = new RegularVector(members);
-        vector.write(10);
-        assert (vector.read(5) == 10);
-
+    void readWriteVector() {
+        RegularVector<Integer> vector = new RegularVector<Integer>(1);
+        vector.write(0, 1);
+        assert vector.read(0) == 1;
     }
 
     @Test
-    void changeVector() {
-        RegularVector vector = new RegularVector(members);
-        vector.write(10);
-        assert (vector.read(5) == 10);
-        vector.change(5, 1010);
-        assert (vector.read(5) == 1010);
-
-    }
-
-    @Test
-    void getSize() {
-        RegularVector vector = new RegularVector(members);
-        assert (vector.getSize() > 0);
-
+    void overwriteValue() {
+        RegularVector<Integer> vector = new RegularVector<Integer>(1);
+        vector.write(0, 1);
+        vector.write(0, 2);
+        assert vector.read(0) == 2;
+        assert vector.getSize() == 1;
     }
 }

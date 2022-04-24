@@ -7,57 +7,30 @@ import lab.vector.SparseVector;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestSparseVector {
-    int[] members = new int[] { 1, 2, 0, 0, 0 };
-
     @Test
     void createVector() {
-        new SparseVector(members);
+        SparseVector<Double> vector = new SparseVector<Double>(1);
     }
 
     @Test
-    void readVector() {
-        SparseVector vector = new SparseVector(members);
-        assert (vector.read(0) == 1);
-        assert (vector.read(4) == 0);
-
+    void getVectorSize() {
+        SparseVector<Double> vector = new SparseVector<Double>(1);
+        assert vector.getSize() == 1;
     }
 
     @Test
-    void writeVector() {
-        SparseVector vector = new SparseVector(members);
-        vector.write(10);
-        assert (vector.read(5) == 10);
-
+    void readWriteVector() {
+        SparseVector<Integer> vector_integer = new SparseVector<Integer>(1);
+        vector_integer.write(0, 1);
+        assert vector_integer.read(0) == 1;
     }
 
     @Test
-    void changeVector() {
-        SparseVector vector = new SparseVector(members);
-        vector.write(10);
-        assert (vector.read(5) == 10);
-        vector.change(5, 1010);
-        assert (vector.read(5) == 1010);
-
-    }
-
-    @Test
-    void getSize() {
-        SparseVector vector = new SparseVector(members);
-        assert (vector.getSize() > 0);
-
-    }
-
-    @Test
-    void badArgs() {
-        int[] members = new int[] { 1, 2, 3, 0, 0 };
-        boolean raised_expection = false;
-        try {
-            new SparseVector(members);
-        } catch (Exception e) {
-            raised_expection = true;
-            assert (e instanceof IllegalArgumentException);
-        }
-
-        assert (raised_expection);
+    void overwriteValue() {
+        SparseVector<Integer> vector_integer = new SparseVector<Integer>(1);
+        vector_integer.write(0, 1);
+        vector_integer.write(0, 2);
+        assert vector_integer.read(0) == 2;
+        assert vector_integer.getSize() == 1;
     }
 }

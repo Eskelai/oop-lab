@@ -1,12 +1,9 @@
 package lab.vector;
 
-public interface VectorInteface {
-    int read(int index);
+public interface VectorInteface<T> {
+    Object read(int index);
 
-    void write(int i);
+    void write(int index, T value);
 
     int getSize();
-
-    void change(int index, int value);
-
 }
