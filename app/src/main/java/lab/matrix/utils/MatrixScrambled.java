@@ -1,12 +1,14 @@
-package lab.matrix;
+package lab.matrix.utils;
 
 import java.util.Random;
 
-public class NumberDecorator implements MatrixInterface {
-    private MatrixInterface matrix;
-    private MatrixInterface saved_matrix;
+import lab.matrix.IMatrix;
 
-    public NumberDecorator(MatrixInterface matrix) {
+public class MatrixScrambled implements IMatrix {
+    private IMatrix matrix;
+    private IMatrix saved_matrix;
+
+    public MatrixScrambled(IMatrix matrix) {
         this.matrix = matrix;
     }
 
@@ -19,7 +21,7 @@ public class NumberDecorator implements MatrixInterface {
             throw new RuntimeException("Not enough numbers to move");
         }
 
-        saved_matrix = matrix; // FIXME: This is a reference
+        // saved_matrix = matrix; // FIXME: This is a reference
         // Keep list of changes?
 
         int first_col = rnd.nextInt(cols);

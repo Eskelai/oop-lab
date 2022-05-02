@@ -1,9 +1,11 @@
-package lab.matrix;
+package lab.matrix.utils;
+
+import lab.matrix.IMatrix;
 
 public class MatrixStatistics {
-    private MatrixInterface matrix;
+    private IMatrix matrix;
 
-    public MatrixStatistics(MatrixInterface matrix) {
+    public MatrixStatistics(IMatrix matrix) {
         this.matrix = matrix;
     }
 

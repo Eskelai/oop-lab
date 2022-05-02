@@ -3,10 +3,10 @@ package lab.vector;
 import java.util.Vector;
 
 // Wrapper/Adapter over java.util.Vector
-public class RegularVector<T> implements VectorInteface<T> {
+public class RegVector<T> implements IVector<T> {
     private Vector<T> vector;
 
-    public RegularVector(int size) {
+    public RegVector(int size) {
         vector = new Vector<T>(size);
         vector.setSize(size); // Something is fishy here
     }

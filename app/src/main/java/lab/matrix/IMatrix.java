@@ -1,6 +1,6 @@
 package lab.matrix;
 
-public interface MatrixInterface {
+public interface IMatrix {
     int read(int col_id, int row_id);
 
     void write(int col_id, int row_id, int value);

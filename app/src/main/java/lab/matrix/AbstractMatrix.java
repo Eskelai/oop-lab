@@ -1,18 +1,9 @@
 package lab.matrix;
 
-import lab.vector.RegularVector;
+import lab.vector.IVector;
 
-public class RegularMatrix extends MatrixAbstract {
-    private RegularVector<RegularVector<Integer>> matrix;
-
-    public RegularMatrix(int side_size) {
-        matrix = new RegularVector<RegularVector<Integer>>(side_size);
-        // Row based
-        for (int i = 0; i < side_size; i++) {
-            matrix.write(i, new RegularVector<Integer>(side_size));
-        }
-
-    }
+public abstract class AbstractMatrix implements IMatrix {
+    protected IVector<IVector<Integer>> matrix;
 
     @Override
     public int getColsAmount() {

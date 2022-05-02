@@ -2,12 +2,12 @@ package lab.TestMatrix;
 
 import org.junit.jupiter.api.Test;
 
-import lab.matrix.MatrixStatistics;
-import lab.matrix.RegularMatrix;
+import lab.matrix.RegMatrix;
+import lab.matrix.utils.MatrixStatistics;
 
 public class TestMatrixStatistics {
-    RegularMatrix getTestMatrix() {
-        RegularMatrix matrix = new RegularMatrix(2);
+    RegMatrix getTestMatrix() {
+        RegMatrix matrix = new RegMatrix(2);
         /*
          * |0,1|
          * |1,2|
@@ -21,7 +21,7 @@ public class TestMatrixStatistics {
         return matrix;
     }
 
-    RegularMatrix test_matrix = getTestMatrix();
+    RegMatrix test_matrix = getTestMatrix();
 
     @Test
     void getSum() {

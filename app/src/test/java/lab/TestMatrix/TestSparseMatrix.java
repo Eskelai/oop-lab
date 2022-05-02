@@ -2,29 +2,29 @@ package lab.TestMatrix;
 
 import org.junit.jupiter.api.Test;
 
-import lab.matrix.SparseMatrix;
+import lab.matrix.SprMatrix;
 
 public class TestSparseMatrix {
     @Test
     void createMatrix() {
-        new SparseMatrix(3);
+        new SprMatrix(3);
     }
 
     @Test
     void getColumns() {
-        SparseMatrix matrix = new SparseMatrix(3);
+        SprMatrix matrix = new SprMatrix(3);
         assert matrix.getColsAmount() == 3;
     }
 
     @Test
     void getRows() {
-        SparseMatrix matrix = new SparseMatrix(3);
+        SprMatrix matrix = new SprMatrix(3);
         assert matrix.getRowsAmount() == 3;
     }
 
     @Test
     void readWriteMatrix() {
-        SparseMatrix matrix = new SparseMatrix(2);
+        SprMatrix matrix = new SprMatrix(2);
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
                 matrix.write(i, j, 1);
@@ -41,7 +41,7 @@ public class TestSparseMatrix {
 
     @Test
     void readWriteMatrixNullValues() {
-        SparseMatrix matrix = new SparseMatrix(2);
+        SprMatrix matrix = new SprMatrix(2);
 
         matrix.write(0, 0, 0);
         matrix.write(0, 1, 0);

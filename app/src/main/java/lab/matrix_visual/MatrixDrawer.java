@@ -1,10 +1,10 @@
 package lab.matrix_visual;
 
-import lab.matrix.MatrixInterface;
+import lab.matrix.IMatrix;
 
 public class MatrixDrawer {
-    DrawerScheme scheme;
-    boolean draw_borders;
+    private DrawerScheme scheme;
+    private boolean draw_borders;
 
     public MatrixDrawer(DrawerScheme scheme) {
         this.scheme = scheme;
@@ -19,7 +19,7 @@ public class MatrixDrawer {
         this.draw_borders = draw_borders;
     }
 
-    public void draw(MatrixInterface matrix) {
+    public void draw(IMatrix matrix) {
         scheme.draw(matrix, draw_borders);
     }
 

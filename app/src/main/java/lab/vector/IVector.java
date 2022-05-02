@@ -1,6 +1,6 @@
 package lab.vector;
 
-public interface VectorInteface<T> {
+public interface IVector<T> {
     T read(int index);
 
     void write(int index, T value);
