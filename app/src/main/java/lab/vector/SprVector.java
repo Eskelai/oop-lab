@@ -3,38 +3,30 @@ package lab.vector;
 
 import java.util.HashMap;
 
-public class SprVector<T> implements IVector<T> {
-    private HashMap<Integer, T> hm;
+public class SprVector implements IVector {
+    private HashMap<Integer, Integer> hm;
     private int size;
 
     public SprVector(int size) {
-        hm = new HashMap<Integer, T>();
+        hm = new HashMap<Integer, Integer>();
         this.size = size;
     }
 
-    public T read(int i) {
+    public int read(int i) {
         if (i < 0 || i >= size)
             throw new RuntimeException("Vector out of bounds");
 
         if (hm.containsKey(i))
             return hm.get(i);
-        else
-            return null;
 
+        return 0;
     }
 
-    public void write(int i, T value) {
+    public void write(int i, int value) {
         if (i < 0 || i >= size)
             throw new RuntimeException("Vector out of bounds");
-
         hm.remove(i); // Remove previous value if it was there
-
-        if (value.getClass().getName() == this.getClass().getName()) {
-            hm.put(i, value);
-            return;
-        }
-
-        if ((int) value != 0) { // FIXME: Value is generic. There's no way we can compare it
+        if (value != 0) {
             hm.put(i, value);
         }
     }

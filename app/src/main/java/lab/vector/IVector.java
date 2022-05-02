@@ -1,9 +1,9 @@
 package lab.vector;
 
-public interface IVector<T> {
-    T read(int index);
+public interface IVector {
+    int read(int index);
 
-    void write(int index, T value);
+    void write(int index, int value);
 
     int getSize();
 }

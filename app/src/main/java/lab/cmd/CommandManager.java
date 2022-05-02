@@ -2,7 +2,7 @@ package lab.cmd;
 
 public class CommandManager extends ACommand {
     static private CommandManager instance = null;
-    // private List<Integer> cmd = new List<Integer>();
+    // private List cmd = new List ();
     private boolean lockCM = false;
 
     private CommandManager() {
