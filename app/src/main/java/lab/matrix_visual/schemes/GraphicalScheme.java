@@ -34,7 +34,7 @@ public class GraphicalScheme extends JFrame implements DrawerScheme {
     }
 
     @Override
-    public void draw(IMatrix matrix, boolean draw_borders) {
+    public void draw(IMatrix matrix) {
         setVisible(true);
     }
 

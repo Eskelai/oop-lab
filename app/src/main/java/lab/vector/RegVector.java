@@ -8,7 +8,7 @@ public class RegVector implements IVector {
 
     public RegVector(int size) {
         vector = new Vector<Integer>(size);
-        vector.setSize(size); // Something is fishy here
+        vector.setSize(size);
     }
 
     public int read(int i) {

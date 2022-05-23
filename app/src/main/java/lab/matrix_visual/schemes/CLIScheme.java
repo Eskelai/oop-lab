@@ -1,13 +1,18 @@
 package lab.matrix_visual.schemes;
 
 import lab.matrix.IMatrix;
-import lab.matrix_visual.DrawerScheme;
+import lab.matrix_visual.DrawerSchemeExternal;
 
-public class CLIScheme implements DrawerScheme {
+public class CLIScheme implements DrawerSchemeExternal {
+    protected boolean drawBorders;
+
+    public CLIScheme() {
+        drawBorders = true;
+    }
 
     @Override
-    public void draw(IMatrix matrix, boolean draw_borders) {
-        if (draw_borders)
+    public void draw(IMatrix matrix) {
+        if (drawBorders)
             System.out.println("--------------------");
 
         int rowSize = matrix.getRowsAmount();
@@ -20,7 +25,16 @@ public class CLIScheme implements DrawerScheme {
             System.out.printf("\n");
         }
 
-        if (draw_borders)
+        if (drawBorders)
             System.out.println("--------------------");
     }
+
+    public boolean getBorders() {
+        return drawBorders;
+    }
+
+    public void setBorders(boolean draw) {
+        drawBorders = draw;
+    }
+
 }

@@ -6,7 +6,6 @@ import lab.matrix.IMatrix;
 
 public class MatrixScrambled implements IMatrix {
     private IMatrix matrix;
-    private IMatrix saved_matrix;
 
     public MatrixScrambled(IMatrix matrix) {
         this.matrix = matrix;
@@ -21,9 +20,6 @@ public class MatrixScrambled implements IMatrix {
             throw new RuntimeException("Not enough numbers to move");
         }
 
-        // saved_matrix = matrix; // FIXME: This is a reference
-        // Keep list of changes?
-
         int first_col = rnd.nextInt(cols);
         int first_row = rnd.nextInt(rows);
         int first_number = matrix.read(first_col, first_row);
@@ -34,10 +30,6 @@ public class MatrixScrambled implements IMatrix {
 
         matrix.write(first_col, first_row, second_number);
         matrix.write(second_col, second_row, first_number);
-    }
-
-    public void resetMatrix() {
-        matrix = saved_matrix;
     }
 
     @Override
